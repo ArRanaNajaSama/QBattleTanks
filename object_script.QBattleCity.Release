@@ -10,10 +10,12 @@ INPUT(
 ./release\TankFactory.o
 ./release\ArmoredWall.o
 ./release\BaseElement.o
+./release\Field.o
 ./release\Headquarters.o
 ./release\Tile.o
 ./release\Wall.o
 ./release\moc_BaseTank.o
 ./release\moc_Bullet.o
 ./release\moc_EnemyTank.o
+./release\moc_Field.o
 );

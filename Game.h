@@ -2,8 +2,6 @@
 
 #include <QGraphicsView>
 #include <QWidget>
-#include <QGraphicsScene>
-#include <QGraphicsView>
 #include <QVector>
 
 #include "Tanks/PlayerTank.h"
@@ -14,8 +12,6 @@ class Game: public QGraphicsView
 {
 public:
     Game(QWidget * parent = 0);
-    QGraphicsScene *scene;
-    QGraphicsView *view;
     PlayerTank *getPlayer();
 
 private:

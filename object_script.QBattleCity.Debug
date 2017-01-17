@@ -10,10 +10,12 @@ INPUT(
 ./debug\TankFactory.o
 ./debug\ArmoredWall.o
 ./debug\BaseElement.o
+./debug\Field.o
 ./debug\Headquarters.o
 ./debug\Tile.o
 ./debug\Wall.o
 ./debug\moc_BaseTank.o
 ./debug\moc_Bullet.o
 ./debug\moc_EnemyTank.o
+./debug\moc_Field.o
 );

@@ -1,9 +1,15 @@
 #include <QDebug>
 #include <QTimer>
+#include <QGraphicsScene>
+#include <QGraphicsView>
 
 #include "Game.h"
 #include "Tanks/TankFactory.h"
 #include "Field/BaseElement.h"
+
+//global
+QGraphicsScene *scene;
+QGraphicsView *view;
 
 PlayerTank *Game::getPlayer()
 {
@@ -12,13 +18,8 @@ PlayerTank *Game::getPlayer()
 
 Game::Game(QWidget *parent)
 {
-    //create a scene
-    scene = new QGraphicsScene();
-    view = new QGraphicsView(scene);
-
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
     // it can be used to visualize scenes)
-    setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
@@ -26,7 +27,7 @@ Game::Game(QWidget *parent)
     player = (PlayerTank*)TankFactory::makeTank(PlayerID);
     qDebug() << "player created";
     player->setRect(0, 0, 50, 50);
-    scene->addItem(player);
+    scene()->addItem(player);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     qDebug() << "Focus is on player";
@@ -37,14 +38,14 @@ Game::Game(QWidget *parent)
     qDebug() << "Enemy created";
     enemy->setRect(0,0,50,50);
     enemies.push_back(enemy);
-    scene->addItem(enemy);
+    scene()->addItem(enemy);
     enemy->setPos(450, 250);
 
     //create wall
     wall = (Wall*)BaseElement::makeElement(wallID,10,10);
     qDebug() << "Wall created";
     wall->setRect(0,0,50,50);
-    scene->addItem(wall);
+    scene()->addItem(wall);
 
 }
 
