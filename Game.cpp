@@ -3,6 +3,7 @@
 
 #include "Game.h"
 #include "Tanks/TankFactory.h"
+#include "Field/BaseElement.h"
 
 PlayerTank *Game::getPlayer()
 {
@@ -13,7 +14,7 @@ Game::Game(QWidget *parent)
 {
     //create a scene
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,800,600);
+    view = new QGraphicsView(scene);
 
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
     // it can be used to visualize scenes)
@@ -38,6 +39,12 @@ Game::Game(QWidget *parent)
     enemies.push_back(enemy);
     scene->addItem(enemy);
     enemy->setPos(450, 250);
+
+    //create wall
+    wall = (Wall*)BaseElement::makeElement(wallID,10,10);
+    qDebug() << "Wall created";
+    wall->setRect(0,0,50,50);
+    scene->addItem(wall);
 
 }
 

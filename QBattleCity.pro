@@ -12,8 +12,9 @@ TEMPLATE = app
 SOURCES += main.cpp \
     Game.cpp \
     $$PWD/Tanks/*.cpp \
-
+    $$PWD/Field/*.cpp \
 
 HEADERS += \
     Game.h \
     $$PWD/Tanks/*.h \
+    $$PWD/Field/*.h \

@@ -8,6 +8,11 @@ INPUT(
 ./debug\PlayerTank.o
 ./debug\PreMotion.o
 ./debug\TankFactory.o
+./debug\ArmoredWall.o
+./debug\BaseElement.o
+./debug\Headquarters.o
+./debug\Tile.o
+./debug\Wall.o
 ./debug\moc_BaseTank.o
 ./debug\moc_Bullet.o
 ./debug\moc_EnemyTank.o
