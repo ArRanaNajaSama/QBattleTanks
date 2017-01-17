@@ -1,0 +1,14 @@
+INPUT(
+./release\main.o
+./release\Game.o
+./release\BaseTank.o
+./release\Bullet.o
+./release\EnemyTank.o
+./release\Motion.o
+./release\PlayerTank.o
+./release\PreMotion.o
+./release\TankFactory.o
+./release\moc_BaseTank.o
+./release\moc_Bullet.o
+./release\moc_EnemyTank.o
+);

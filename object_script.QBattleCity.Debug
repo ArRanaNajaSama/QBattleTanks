@@ -1,0 +1,14 @@
+INPUT(
+./debug\main.o
+./debug\Game.o
+./debug\BaseTank.o
+./debug\Bullet.o
+./debug\EnemyTank.o
+./debug\Motion.o
+./debug\PlayerTank.o
+./debug\PreMotion.o
+./debug\TankFactory.o
+./debug\moc_BaseTank.o
+./debug\moc_Bullet.o
+./debug\moc_EnemyTank.o
+);
