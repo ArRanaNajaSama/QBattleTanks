@@ -5,6 +5,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
+#include <QGraphicsTextItem>
 
 #include "Game.h"
 #include "Tanks/TankFactory.h"
@@ -59,6 +60,7 @@ Game::Game(char *path)
     player = (PlayerTank*)TankFactory::makeTank(PlayerID);
     qDebug() << "player created";
     player->setRect(0, 0, 50, 50);
+    player->setBrush(*new QBrush(Qt::green));
     scene->addItem(player);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
@@ -69,18 +71,20 @@ Game::Game(char *path)
     {
         for (int j = 0; j < width;j++)
         {
-            if ( fMatrix[j+i*width] == 4)
+            if (fMatrix[i+j*width] == 4)
             {
-                player->setPos(j*elementSize-2*elementSize,i*elementSize);
+                fMatrix[i+j*width] = 0;
+                player->setPos(i*elementSize,j*elementSize);
             }
-            if (fMatrix[j+i*width] == 5)
+            if (fMatrix[i+j*width] == 5)
             {
-                fMatrix[j+i*width] = 0;
+                fMatrix[i+j*width] = 0;
                 enemy = (EnemyTank*)TankFactory::makeTank(EnemyID);
                 enemy->setRect(0, 0, 50, 50);
+                enemy->setBrush(* new QBrush(Qt::red));
                 enemies.push_back(enemy);
                 scene->addItem(enemy);
-                enemy->setPos(j*elementSize,i*elementSize);
+                enemy->setPos(i*elementSize,j*elementSize);
             }
         }
     }
@@ -90,7 +94,7 @@ Game::Game(char *path)
     {
         for (int j = 0; j < width; j++)
         {
-            switch(fMatrix[j+i*width]){
+            switch(fMatrix[i+j*width]){
             case 1:
                 elements.push_back(BaseElement::makeElement(wallID,j,i));
                 scene->addItem(elements.back());
@@ -111,54 +115,53 @@ Game::Game(char *path)
     }
 }
 
+
 Game::~Game()
 {
+    //remove player
+    scene->removeItem(player);
+    delete player;
+
     //remove all elements from scene
     for (int i=0; i < elements.size(); i++)
     {
-        scene()->removeItem(elements[i]);
+        scene->removeItem(elements[i]);
         delete elements[i];
     }
-
-    //remove player
-    scene()->removeItem(player);
-    delete player;
 
     // clean all enemies at the end;
     EnemyTank* enemy = NULL;
     while(enemies.size())
     {
         enemy = enemies.back();
-        scene()->removeItem(player);
-        delete player;
+        scene->removeItem(enemy);
+        delete enemy;
         enemies.pop_back();
     }
 }
 
-int Game::check(int a, int b)
+int Game::check(int k, int m)
 {
-    if (fMatrix[a+b*width] != 0)
+    int pos = k+m*width;
+    if (fMatrix[pos] != 0)
     {
         return 0;
-    }
-    else
+
+    } else {
         return 1;
+    }
 }
 
-void Game::destroyEnemyTank(BaseTank* deleteEnemy)
+void Game::displayGameOverWindow()
 {
-    for(size_t i = 0; i < enemies.size();i++)
-        if (enemies[i] == deleteEnemy)
-        {
-            delete enemies[i];
-            enemies.erase(enemies.begin() + i);
-            if (enemies.empty())
-            {
-                delete this;
-            }
-        }
-    return;
+
+    scene->clear();
+    scene->setBackgroundBrush(*new QBrush(Qt::white));
+    scene->addText("GAME OVER!");
+    delete this;
 }
+
+
 
 
 

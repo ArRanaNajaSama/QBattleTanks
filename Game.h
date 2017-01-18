@@ -1,6 +1,5 @@
 #pragma once
 
-#include <QGraphicsView>
 #include <QVector>
 
 #include "Tanks/PlayerTank.h"
@@ -8,14 +7,18 @@
 #include "Field/BaseElement.h"
 
 
-class Game: public QGraphicsView
+class Game
 {
 public:
     Game(char* path);
     ~Game();
     PlayerTank *getPlayer();
+
+    //public methods
     int check(int, int);
     void destroyEnemyTank(BaseTank*);
+    void destroySceneObject(BaseElement* element);
+    void displayGameOverWindow();
 
 private:
     PlayerTank *player;

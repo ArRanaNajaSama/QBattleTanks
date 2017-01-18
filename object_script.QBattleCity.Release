@@ -5,6 +5,7 @@ INPUT(
 ./release\Bullet.o
 ./release\EnemyTank.o
 ./release\Motion.o
+./release\NoMotion.o
 ./release\PlayerTank.o
 ./release\PreMotion.o
 ./release\TankFactory.o

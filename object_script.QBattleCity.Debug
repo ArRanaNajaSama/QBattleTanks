@@ -5,6 +5,7 @@ INPUT(
 ./debug\Bullet.o
 ./debug\EnemyTank.o
 ./debug\Motion.o
+./debug\NoMotion.o
 ./debug\PlayerTank.o
 ./debug\PreMotion.o
 ./debug\TankFactory.o

@@ -36,10 +36,9 @@ void Bullet::move()
         if (typeid(*(colliding_items[i])) == typeid(Wall))
         {
             // remove them both
-            scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
+
             // delete them both
-            delete colliding_items[i];
             delete this;
             return;
         }
@@ -51,8 +50,10 @@ void Bullet::move()
         }
         else if (typeid(*(colliding_items[i])) == typeid(EnemyTank))
         {
-            game->destroyEnemyTank(dynamic_cast<BaseTank*>(colliding_items[i]));
+            scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
+            // delete them both
+            delete colliding_items[i];
             delete this;
             return;
         }
@@ -64,18 +65,19 @@ void Bullet::move()
             // delete them both
             delete colliding_items[i];
             delete this;
-            delete game;
             return;
         }
         else if (typeid(*(colliding_items[i])) == typeid(Headquarters))
         {
-            // remove them both
-            scene()->removeItem(colliding_items[i]);
-            scene()->removeItem(this);
-            // delete them both
-            delete colliding_items[i];
-            delete this;
-            return;
+//            // remove them both
+//            scene()->removeItem(colliding_items[i]);
+//            scene()->removeItem(this);
+//            // delete them both
+//            delete colliding_items[i];
+//            delete this;
+//            return;
+
+              game->displayGameOverWindow();
         }
     }
 

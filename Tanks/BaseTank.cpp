@@ -93,8 +93,8 @@ void BaseTank::shot()
 
 int BaseTank::checkPosition()
 {
-    int realX = pos().x()+rect().width()/2;
-    int realY = pos().y()+rect().height()/2;
+    int realX = x()+rect().width()/2;
+    int realY = y()+rect().height()/2;
 
     int k = realX / rect().width();
     int m = realY / rect().height();
@@ -120,4 +120,3 @@ void BaseTank::setMotion(PreMotion *newMotion)
 {
     premotion = newMotion;
 }
-
