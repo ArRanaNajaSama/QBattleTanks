@@ -1,11 +1,11 @@
 #pragma once
 
 #include <QGraphicsItem>
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 
-enum BaseElementID {headquartersID, wallID, armoredWallID};
+enum BaseElementID {headquartersID, wallID, armoredWallID, tileID};
 
-class BaseElement : public QGraphicsRectItem
+class BaseElement : public QGraphicsPixmapItem
 {
 //factory method
 public:

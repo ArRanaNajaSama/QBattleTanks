@@ -14,6 +14,7 @@ INPUT(
 ./debug\Headquarters.o
 ./debug\Tile.o
 ./debug\Wall.o
+./debug\qrc_res.o
 ./debug\moc_BaseTank.o
 ./debug\moc_Bullet.o
 ./debug\moc_EnemyTank.o

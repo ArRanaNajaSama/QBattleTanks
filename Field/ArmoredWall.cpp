@@ -11,7 +11,7 @@ ArmoredWall::ArmoredWall(int a, int b)
     setPos(x*cell, y*cell);
 
     //draw item
-    setRect(0,0,50,50);
+    setPixmap(QPixmap(":/images/images/armored.png"));
 }
 
 void ArmoredWall::sayMyName()

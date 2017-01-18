@@ -18,8 +18,8 @@ void Motion::move(int tDirection)
 //    }
 
     // move tanks around the field;
-    int dx = 0;
-    int dy = 0;
+//    int dx = 0;
+//    int dy = 0;
     switch(tDirection)
     {
     case 0:

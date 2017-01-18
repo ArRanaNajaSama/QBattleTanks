@@ -1,11 +1,12 @@
-QT -= gui
+QT += core
+QT += gui
 QT += widgets
+QT += xml
 
 CONFIG += c++11
 
 TARGET = QBattleCity
 CONFIG += console
-CONFIG -= app_bundle
 
 TEMPLATE = app
 
@@ -18,3 +19,6 @@ HEADERS += \
     Game.h \
     $$PWD/Tanks/*.h \
     $$PWD/Field/*.h \
+
+RESOURCES += \
+    res.qrc

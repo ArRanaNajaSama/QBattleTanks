@@ -17,22 +17,22 @@ Field::Field(int a, int b, QVector <int> init)
     {
         for (int j = 0; j < width; j++)
         {
-            if (fieldMatrix[i+j*width] == 1)
-            {
-                elements.push_back(BaseElement::makeElement(wallID, j,i));
+            switch(fieldMatrix[i+j*width]){
+            case 1:
+                elements.push_back(BaseElement::makeElement(wallID,j,i));
                 scene->addItem(elements.back());
-            }
-            else if (fieldMatrix[i+j*width] == 2)
-            {
-                elements.push_back(BaseElement::makeElement(armoredWallID, j,i));
+                break;
+            case 2:
+                elements.push_back(BaseElement::makeElement(armoredWallID,j,i));
                 scene->addItem(elements.back());
-            }
-            else if (fieldMatrix[i+j*width] == 3)
-            {
-                elements.push_back(BaseElement::makeElement(headquartersID, j, i));
+                break;
+            case 3:
+                elements.push_back(BaseElement::makeElement(headquartersID,j,i));
                 scene->addItem(elements.back());
-            } else{
+                break;
+            default:
                 elements.push_back(NULL);
+                break;
             }
         }
     }
@@ -40,11 +40,7 @@ Field::Field(int a, int b, QVector <int> init)
 
 Field::~Field()
 {
-    for (unsigned int i=0; i < elements.size(); i++ )
-    {
-        scene->removeItem(elements[i]);
-        delete elements[i];
-    }
+
 }
 
 int Field::check(int a, int b)

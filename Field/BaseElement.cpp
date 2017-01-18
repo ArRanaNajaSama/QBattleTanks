@@ -2,6 +2,7 @@
 #include "ArmoredWall.h"
 #include "Headquarters.h"
 #include "Wall.h"
+#include "Tile.h"
 
 BaseElement *BaseElement::makeElement(BaseElementID baseID, int a, int b)
 {
@@ -20,6 +21,10 @@ BaseElement *BaseElement::makeElement(BaseElementID baseID, int a, int b)
     else if (baseID == wallID)
     {
         creation = new Wall(a,b);
+    }
+    else if (baseID == tileID)
+    {
+        creation = new Tile(a,b);
     }
     return creation;
 }

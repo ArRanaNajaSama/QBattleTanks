@@ -11,6 +11,7 @@ Wall::Wall(int a, int b)
     setPos(x*cell, y*cell);
 
     //draw item
+    setPixmap(QPixmap(":/images/images/wall.png"));
 
 }
 

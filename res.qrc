@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/tile.jpg</file>
+        <file>images/bullet.png</file>
+        <file>images/enemytank.png</file>
+        <file>images/mytank.png</file>
+        <file>images/wall.png</file>
+        <file>images/white.png</file>
+        <file>images/armored.png</file>
+        <file>images/HQ.png</file>
+    </qresource>
+    <qresource prefix="/txt">
+        <file>levelone.txt</file>
+    </qresource>
+</RCC>

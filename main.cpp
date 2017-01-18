@@ -2,15 +2,11 @@
 
 #include "Game.h"
 
-//global object
-Game * game;
+Game *game;
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
     QApplication a(argc, argv);
-
-    game = new Game();
-    game->show();
-
+    game = new Game((char*)":/txt/levelone.txt");
     return a.exec();
 }

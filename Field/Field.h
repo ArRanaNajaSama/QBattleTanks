@@ -5,16 +5,18 @@
 
 #include "BaseElement.h"
 
-class Field
+class Field : public QObject
 {
     Q_OBJECT
-
 public:
     Field(int, int, QVector<int>);
     ~Field();
     int check(int, int);
-    void destroy(BaseElement *);
+    void destroy(BaseElement*);
     void destroy(int, int);
+
+signals:
+    void objectDelete();
 
 private:
     QVector <BaseElement*> elements;

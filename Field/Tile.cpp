@@ -10,7 +10,8 @@ Tile::Tile(int a, int b)
     //set position
     setPos(x*cell, y*cell);
 
-    //draw item - QPixmap
+    //draw item
+    setPixmap(QPixmap(":/images/images/tile.jpg"));
 }
 
 void Tile::sayMyName()
