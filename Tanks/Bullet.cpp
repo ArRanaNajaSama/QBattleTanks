@@ -7,11 +7,17 @@
 
 #include "EnemyTank.h"
 #include "BaseTank.h"
+#include "Field/BaseElement.h"
+#include "Field/Wall.h"
+#include "Field/ArmoredWall.h"
+#include "Field/Headquarters.h"
+#include "Game.h"
+
+extern Game* game;
 
 Bullet::Bullet(int newBDirection)
 {
     bDirection = newBDirection;
-    this->setRotation(bDirection*90);
 
     //create rect
     setRect(0,0,10,10);
@@ -24,12 +30,44 @@ Bullet::Bullet(int newBDirection)
 
 void Bullet::move()
 {
-    // check for collisions and solve them
-    // if bullet collides with enemy, destroy both
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i)
     {
-        if (typeid(*(colliding_items[i])) == typeid(EnemyTank))
+        if (typeid(*(colliding_items[i])) == typeid(Wall))
+        {
+            // remove them both
+            scene()->removeItem(colliding_items[i]);
+            scene()->removeItem(this);
+            // delete them both
+            delete colliding_items[i];
+            delete this;
+            return;
+        }
+        else if (typeid(*(colliding_items[i])) == typeid(ArmoredWall))
+        {
+            scene()->removeItem(this);
+            delete this;
+            return;
+        }
+        else if (typeid(*(colliding_items[i])) == typeid(EnemyTank))
+        {
+            game->destroyEnemyTank(dynamic_cast<BaseTank*>(colliding_items[i]));
+            scene()->removeItem(this);
+            delete this;
+            return;
+        }
+        else if(typeid(*(colliding_items[i])) == typeid(PlayerTank))
+        {
+            // remove them both
+            scene()->removeItem(colliding_items[i]);
+            scene()->removeItem(this);
+            // delete them both
+            delete colliding_items[i];
+            delete this;
+            delete game;
+            return;
+        }
+        else if (typeid(*(colliding_items[i])) == typeid(Headquarters))
         {
             // remove them both
             scene()->removeItem(colliding_items[i]);
@@ -58,8 +96,9 @@ void Bullet::move()
         break;
     }
 
+    // if bullet leaves the field- delete it
     if (pos().y() < 0 || pos().y() > scene()->height() ||
-        pos().x() < 0 || pos().x() > scene()->width())
+            pos().x() < 0 || pos().x() > scene()->width())
     {
         scene()->removeItem(this);
         delete this;

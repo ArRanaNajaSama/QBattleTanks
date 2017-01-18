@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <QTimer>
+#include <QPainter>
+#include <QPixmap>
 
 #include "EnemyTank.h"
 #include "Motion.h"
@@ -33,11 +35,9 @@ void EnemyTank::launch()
         shot();
         return;
     }
-
     //random movement
-    if (this->direction != random)
+    else if (this->direction != random)
     {
         move(random);
     }
-    move(random);
 }

@@ -23,7 +23,10 @@ public:
 
     //common actions for all tanks
     void shot();
-    void move(int tDirection);
+    void move(int newDirection);
+
+    // Return type cell
+    int checkPosition();
 
 public slots:
     void setMotion(PreMotion *newMotion);

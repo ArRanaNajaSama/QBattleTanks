@@ -690,16 +690,16 @@ release/main.o: main.cpp C:/Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QVector \
 		Tanks/PlayerTank.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsitem.h \
 		Tanks/BaseTank.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QObject \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsRectItem \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsitem.h \
 		Tanks/Bullet.h \
 		Tanks/PreMotion.h \
 		Tanks/EnemyTank.h \
 		Field/BaseElement.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsItem \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsPixmapItem
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o main.cpp
 
 release/Game.o: Game.cpp C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsScene \
@@ -821,16 +821,16 @@ release/Game.o: Game.cpp C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsScene 
 		Game.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QVector \
 		Tanks/PlayerTank.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsitem.h \
 		Tanks/BaseTank.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QObject \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsRectItem \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsitem.h \
 		Tanks/Bullet.h \
 		Tanks/PreMotion.h \
 		Tanks/EnemyTank.h \
 		Field/BaseElement.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsItem \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsPixmapItem \
 		Tanks/TankFactory.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Game.o Game.cpp
 
@@ -952,7 +952,13 @@ release/BaseTank.o: Tanks/BaseTank.cpp C:/Qt/5.5/mingw492_32/include/QtWidgets/Q
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsRectItem \
 		Tanks/Bullet.h \
 		Tanks/PreMotion.h \
-		Tanks/EnemyTank.h
+		Tanks/EnemyTank.h \
+		Game.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QVector \
+		Tanks/PlayerTank.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsPixmapItem \
+		Field/BaseElement.h \
+		Field/Wall.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BaseTank.o Tanks\BaseTank.cpp
 
 release/Bullet.o: Tanks/Bullet.cpp Tanks/Bullet.h \
@@ -1055,7 +1061,36 @@ release/Bullet.o: Tanks/Bullet.cpp Tanks/Bullet.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsItem \
 		Tanks/EnemyTank.h \
 		Tanks/BaseTank.h \
-		Tanks/PreMotion.h
+		Tanks/PreMotion.h \
+		Field/BaseElement.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsPixmapItem \
+		Field/Wall.h \
+		Field/ArmoredWall.h \
+		Field/Headquarters.h \
+		Game.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsView \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpainter.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfontinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfontmetrics.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qscrollarea.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpalette.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qcursor.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qkeysequence.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qevent.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qurl.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qurlquery.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfile.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfiledevice.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QVector \
+		Tanks/PlayerTank.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Bullet.o Tanks\Bullet.cpp
 
 release/EnemyTank.o: Tanks/EnemyTank.cpp C:/Qt/5.5/mingw492_32/include/QtCore/QTimer \
@@ -1113,6 +1148,41 @@ release/EnemyTank.o: Tanks/EnemyTank.cpp C:/Qt/5.5/mingw492_32/include/QtCore/QT
 		C:/Qt/5.5/mingw492_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qisenum.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/QPainter \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpainter.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qrect.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmargins.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsize.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qpoint.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpixmap.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qcolor.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qrgb.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qshareddata.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qhash.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qpair.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qimage.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtransform.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qmatrix.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpolygon.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qvector.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qregion.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qdatastream.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qiodevice.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qline.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpainterpath.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpixelformat.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qbrush.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfontinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfont.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfontmetrics.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/QPixmap \
 		Tanks/EnemyTank.h \
 		Tanks/BaseTank.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QObject \
@@ -1120,45 +1190,18 @@ release/EnemyTank.o: Tanks/EnemyTank.cpp C:/Qt/5.5/mingw492_32/include/QtCore/QT
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qvariant.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qmap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qpair.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qdebug.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qhash.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qtextstream.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qiodevice.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qlocale.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvector.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qpoint.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qset.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qcontiguouscache.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qrect.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmargins.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsize.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpainterpath.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qmatrix.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpolygon.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qregion.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qdatastream.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qline.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpixmap.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qcolor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrgb.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qimage.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtransform.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpixelformat.h \
 		Tanks/Bullet.h \
 		Tanks/PreMotion.h \
 		Tanks/Motion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\EnemyTank.o Tanks\EnemyTank.cpp
 
-release/Motion.o: Tanks/Motion.cpp Tanks/Motion.h \
-		Tanks/BaseTank.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/QObject \
+release/Motion.o: Tanks/Motion.cpp C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qobject.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qnamespace.h \
@@ -1211,41 +1254,47 @@ release/Motion.o: Tanks/Motion.cpp Tanks/Motion.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qisenum.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsRectItem \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsitem.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvariant.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qpair.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qdebug.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qhash.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qtextstream.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qiodevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qlocale.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvector.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qpoint.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qset.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qrect.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qmargins.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qsize.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpainterpath.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qbrush.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qpair.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qvector.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qcolor.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qrgb.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qmatrix.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpolygon.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qregion.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs_win.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qdatastream.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qiodevice.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qline.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpixmap.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qcolor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrgb.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qimage.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtransform.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpainterpath.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qimage.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintdevice.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpixelformat.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpixmap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qshareddata.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qhash.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfont.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
+		Tanks/Motion.h \
+		Tanks/BaseTank.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QObject \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsRectItem \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsitem.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qvariant.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qdebug.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtextstream.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlocale.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qset.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcontiguouscache.h \
 		Tanks/Bullet.h \
 		Tanks/PreMotion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Motion.o Tanks\Motion.cpp
@@ -1333,9 +1382,7 @@ release/PlayerTank.o: Tanks/PlayerTank.cpp C:/Qt/5.5/mingw492_32/include/QtGui/Q
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QDebug \
 		Tanks/PlayerTank.h \
-		Tanks/BaseTank.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/QObject \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsRectItem \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpainterpath.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qmatrix.h \
@@ -1350,6 +1397,9 @@ release/PlayerTank.o: Tanks/PlayerTank.cpp C:/Qt/5.5/mingw492_32/include/QtGui/Q
 		C:/Qt/5.5/mingw492_32/include/QtGui/qimage.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtransform.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpixelformat.h \
+		Tanks/BaseTank.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QObject \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsRectItem \
 		Tanks/Bullet.h \
 		Tanks/PreMotion.h \
 		Tanks/Motion.h
@@ -1541,7 +1591,8 @@ release/TankFactory.o: Tanks/TankFactory.cpp Tanks/TankFactory.h \
 		Tanks/Bullet.h \
 		Tanks/PreMotion.h \
 		Tanks/EnemyTank.h \
-		Tanks/PlayerTank.h
+		Tanks/PlayerTank.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsPixmapItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\TankFactory.o Tanks\TankFactory.cpp
 
 release/ArmoredWall.o: Field/ArmoredWall.cpp C:/Qt/5.5/mingw492_32/include/QtCore/QDebug \

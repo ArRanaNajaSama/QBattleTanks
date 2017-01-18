@@ -65,11 +65,15 @@ Game::Game(char *path)
     player->setFocus();
     qDebug() << "Focus is on player";
 
-    //elements positions
+    //enemy positions
     for(int i=0; i < heigth;i++)
-        for (int j = 0; j < width;j++){
+    {
+        for (int j = 0; j < width;j++)
+        {
             if ( fMatrix[i+j*width] == 4)
+            {
                 player->setPos(i*elementSize-2*elementSize,j*elementSize);
+            }
             if (fMatrix[i+j*width] == 5)
             {
                 fMatrix[i+j*width] = 0;
@@ -80,6 +84,7 @@ Game::Game(char *path)
                 enemy->setPos(i*elementSize,j*elementSize);
             }
         }
+    }
 
     //go through fieldMatrix and in acc with its data fill elements;
     for (int i = 0; i < heigth; i++)
@@ -116,12 +121,12 @@ Game::~Game()
         delete elements[i];
     }
 
-    // clean all enemies at the end;
-    EnemyTank* enemy = NULL;
+    //remove player
     scene()->removeItem(player);
     delete player;
-    scene()->setBackgroundBrush(QPixmap(":/images/white.jpg"));
-    scene()->addText("GAME OVER!");
+
+    // clean all enemies at the end;
+    EnemyTank* enemy = NULL;
     while(enemies.size())
     {
         enemy = enemies.back();
@@ -141,29 +146,7 @@ int Game::check(int a, int b)
         return 1;
 }
 
-void Game::destroy(BaseElement* base)
-{
-    for(int i = 0 ; i < heigth; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
-            if (elements[i+j*width] == base){
-                scene()->removeItem(elements[i+j*width]);
-                delete elements[i+j*width];
-                elements[i+j*width]=NULL;
-                fMatrix[j+i*width] = 0;
-            }
-        }
-    }
-}
 
-void Game::destroy(int i, int j)
-{
-    scene()->removeItem(elements[i+j*width]);
-    delete elements[i+j*width];
-    elements[i+j*width]=NULL;
-    fMatrix[j+i*width] = 0;
-}
 
 
 

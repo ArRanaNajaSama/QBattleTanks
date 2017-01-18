@@ -5,6 +5,10 @@
 
 #include "BaseTank.h"
 #include "EnemyTank.h"
+#include "Game.h"
+#include "Field/Wall.h"
+
+extern Game *game;
 
 BaseTank::BaseTank()
 {
@@ -37,22 +41,31 @@ void BaseTank::setDirection(int newDirection)
     direction = newDirection;
 }
 
+void BaseTank::move(int newDirection)
+{
+    // prevent collision;
+    this->setDirection(newDirection);
+    premotion->move(direction);
+
+}
+
 void BaseTank::setTankRotation(int newDirection)
 {
-    this->direction = newDirection;
+    this->setDirection(newDirection);
     this->setTransformOriginPoint(QPoint(this->rect().width()/2, this->rect().height()/2));
-    setRotation(newDirection*90);
+    this->setRotation(newDirection*90);
 }
 
 void BaseTank::shot()
 {
     //create new bullet
-    Bullet *bullet = new Bullet(direction);
+    Bullet *bullet = new Bullet(getDirection());
 
     //set bullet's position
     int bulletX;
     int bulletY;
-    switch (direction) {
+    switch (this->getDirection())
+    {
     case 0:
         bulletX = x() + this->rect().center().x() - bullet->rect().width()/2;
         bulletY = y() - 2*bullet->rect().height();
@@ -74,44 +87,29 @@ void BaseTank::shot()
     scene()->addItem(bullet);
 }
 
-void BaseTank::move(int tDirection)
+
+int BaseTank::checkPosition()
 {
-//    BaseTank *bTank = NULL;
-//    int dif;
-//    QList<QGraphicsItem *> colliding_items = collidingItems();
-//    if(direction == this->direction)
-//        for (int i = 0, n = colliding_items.size(); i < n; ++i)
-//        {
-//            if (bTank = dynamic_cast<BaseTank*>(colliding_items[i]))
-//            {
-//                if(this->x() == bTank->x())
-//                {
-//                    dif = bTank->y() - this->y();
-//                    if( (dif > 0 && this->direction == 2) || (dif < 0 && this->direction == 0))
-//                        return;
-//                }
-//                else if(this->y() == bTank->y())
-//                {
-//                    dif = bTank->x() - this->x();
-//                    if( (dif > 0 && this->direction == 1) || (dif < 0 && this->direction == 3) )
-//                        return;
-//                }
-//            }
-//        }
+    int realX = pos().x()+rect().width()/2;
+    int realY = pos().y()+rect().height()/2;
 
-//    // prevent collision;
-//    QList<QGraphicsItem *> colliding_items = collidingItems();
-//    for (int i = 0, n = colliding_items.size(); i < n; ++i)
-//    {
-//        if (typeid(*(colliding_items[i])) == typeid(EnemyTank))
-//        {
-//            //change direction
-//            int random = rand()%4;
-//            setDirection(random);
-//        }
-//    }
-
-    premotion->move(tDirection);
+    int k = realX / rect().width();
+    int m = realY / rect().height();
+    switch (direction) {
+    case 1:
+        k++;
+        break;
+    case 2:
+        m++;
+        break;
+    case 3:
+        k--;
+        break;
+    default:
+        m--;
+        break;
+    }
+    return game->check(m,k);
 }
 
 void BaseTank::setMotion(PreMotion *newMotion)
