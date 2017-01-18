@@ -43,9 +43,12 @@ void BaseTank::setDirection(int newDirection)
 
 void BaseTank::move(int newDirection)
 {
-    // prevent collision;
+
     this->setDirection(newDirection);
-    premotion->move(direction);
+
+    // prevent collision;
+
+    premotion->move(getDirection());
 
 }
 
@@ -95,7 +98,8 @@ int BaseTank::checkPosition()
 
     int k = realX / rect().width();
     int m = realY / rect().height();
-    switch (direction) {
+    switch (getDirection())
+    {
     case 1:
         k++;
         break;

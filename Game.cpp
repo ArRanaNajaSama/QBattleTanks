@@ -16,7 +16,7 @@ QGraphicsView *view;
 #define elementSize 50
 #define heigth 13
 #define width 13
-#define fieldSize 660
+#define fieldSize 650
 
 PlayerTank *Game::getPlayer()
 {
@@ -29,8 +29,9 @@ Game::Game(char *path)
     QGraphicsScene *scene = new QGraphicsScene();
     scene->setBackgroundBrush(QPixmap(":/images/tile.jpg"));
     view = new QGraphicsView(scene);
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->show();
 
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
     // it can be used to visualize scenes)
@@ -54,8 +55,6 @@ Game::Game(char *path)
         }
     }
 
-    view->show();
-
     //create player
     player = (PlayerTank*)TankFactory::makeTank(PlayerID);
     qDebug() << "player created";
@@ -70,18 +69,18 @@ Game::Game(char *path)
     {
         for (int j = 0; j < width;j++)
         {
-            if ( fMatrix[i+j*width] == 4)
+            if ( fMatrix[j+i*width] == 4)
             {
-                player->setPos(i*elementSize-2*elementSize,j*elementSize);
+                player->setPos(j*elementSize-2*elementSize,i*elementSize);
             }
-            if (fMatrix[i+j*width] == 5)
+            if (fMatrix[j+i*width] == 5)
             {
-                fMatrix[i+j*width] = 0;
+                fMatrix[j+i*width] = 0;
                 enemy = (EnemyTank*)TankFactory::makeTank(EnemyID);
                 enemy->setRect(0, 0, 50, 50);
                 enemies.push_back(enemy);
                 scene->addItem(enemy);
-                enemy->setPos(i*elementSize,j*elementSize);
+                enemy->setPos(j*elementSize,i*elementSize);
             }
         }
     }
@@ -91,7 +90,7 @@ Game::Game(char *path)
     {
         for (int j = 0; j < width; j++)
         {
-            switch(fMatrix[i+j*width]){
+            switch(fMatrix[j+i*width]){
             case 1:
                 elements.push_back(BaseElement::makeElement(wallID,j,i));
                 scene->addItem(elements.back());
@@ -115,7 +114,7 @@ Game::Game(char *path)
 Game::~Game()
 {
     //remove all elements from scene
-    for (int i=0; i < elements.size(); i++ )
+    for (int i=0; i < elements.size(); i++)
     {
         scene()->removeItem(elements[i]);
         delete elements[i];
@@ -146,7 +145,20 @@ int Game::check(int a, int b)
         return 1;
 }
 
-
+void Game::destroyEnemyTank(BaseTank* deleteEnemy)
+{
+    for(size_t i = 0; i < enemies.size();i++)
+        if (enemies[i] == deleteEnemy)
+        {
+            delete enemies[i];
+            enemies.erase(enemies.begin() + i);
+            if (enemies.empty())
+            {
+                delete this;
+            }
+        }
+    return;
+}
 
 
 

@@ -15,6 +15,7 @@ public:
     ~Game();
     PlayerTank *getPlayer();
     int check(int, int);
+    void destroyEnemyTank(BaseTank*);
 
 private:
     PlayerTank *player;
