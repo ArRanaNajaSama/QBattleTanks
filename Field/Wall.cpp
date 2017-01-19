@@ -1,5 +1,3 @@
-#include <QDebug>
-
 #include "Wall.h"
 
 Wall::Wall(int a, int b)
@@ -12,10 +10,5 @@ Wall::Wall(int a, int b)
 
     //draw item
     setPixmap(QPixmap(":/images/images/wall.png"));
-}
-
-void Wall::sayMyName()
-{
-    qDebug() << "Wall is here!";
 }
 

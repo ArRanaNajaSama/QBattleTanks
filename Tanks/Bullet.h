@@ -15,5 +15,4 @@ public slots:
 
 private:
     int bDirection;
-
 };

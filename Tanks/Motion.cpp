@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 #include "Motion.h"
-#include "NoMotion.h"
 
 Motion::Motion(BaseTank *baseTank) : PreMotion()
 {

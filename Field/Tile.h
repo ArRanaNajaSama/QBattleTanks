@@ -8,7 +8,6 @@ class Tile : public BaseElement
 {
 public:
     Tile(int a, int b);
-    void sayMyName();
 
 protected:
     int x;

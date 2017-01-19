@@ -8,7 +8,6 @@ class ArmoredWall : public BaseElement
 {
 public:
     ArmoredWall(int a, int b);
-    void sayMyName();
 
 protected:
     int x;

@@ -7,6 +7,7 @@
 
 #include "EnemyTank.h"
 #include "BaseTank.h"
+#include "PlayerTank.h"
 #include "Field/BaseElement.h"
 #include "Field/Wall.h"
 #include "Field/ArmoredWall.h"
@@ -21,6 +22,7 @@ Bullet::Bullet(int newBDirection)
 
     //create rect
     setRect(0,0,10,10);
+    setBrush(QBrush(Qt::yellow));
 
     //connect
     QTimer *timer = new QTimer;
@@ -72,12 +74,11 @@ void Bullet::move()
 //            // remove them both
 //            scene()->removeItem(colliding_items[i]);
 //            scene()->removeItem(this);
-//            // delete them both
+//            //delete them both
 //            delete colliding_items[i];
 //            delete this;
 //            return;
-
-              game->displayGameOverWindow();
+              delete game;
         }
     }
 

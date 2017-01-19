@@ -1,5 +1,3 @@
-#include <QDebug>
-
 #include "ArmoredWall.h"
 
 ArmoredWall::ArmoredWall(int a, int b)
@@ -12,9 +10,4 @@ ArmoredWall::ArmoredWall(int a, int b)
 
     //draw item
     setPixmap(QPixmap(":/images/images/armored.png"));
-}
-
-void ArmoredWall::sayMyName()
-{
-    qDebug() << "Armored wall built!";
 }

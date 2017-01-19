@@ -1,7 +1,6 @@
 QT += core
 QT += gui
 QT += widgets
-QT += xml
 
 CONFIG += c++11
 
@@ -22,3 +21,5 @@ HEADERS += \
 
 RESOURCES += \
     res.qrc
+
+FORMS +=

@@ -1,5 +1,3 @@
-#include <QDebug>
-
 #include "Headquarters.h"
 
 Headquarters::Headquarters(int a, int b)
@@ -12,9 +10,4 @@ Headquarters::Headquarters(int a, int b)
 
     //draw item
     setPixmap(QPixmap(":/images/images/HQ.png"));
-}
-
-void Headquarters::sayMyName()
-{
-    qDebug() << "HQ is created.";
 }

@@ -1,5 +1,3 @@
-#include <QDebug>
-
 #include "Tile.h"
 
 Tile::Tile(int a, int b)
@@ -11,10 +9,5 @@ Tile::Tile(int a, int b)
     setPos(x*cell, y*cell);
 
     //draw item
-    setPixmap(QPixmap(":/images/images/tile.jpg"));
-}
-
-void Tile::sayMyName()
-{
-    qDebug() << "Tile is tiled.";
+    setPixmap(QPixmap(":/images/images/tile.png"));
 }
