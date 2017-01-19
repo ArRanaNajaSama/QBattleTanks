@@ -1,5 +1,3 @@
-//#include <QGraphicsScene>
-//#include <QGraphicsView>
 #include <QIODevice>
 #include <QFile>
 #include <QTextStream>
@@ -9,25 +7,17 @@
 #include "Tanks/TankFactory.h"
 #include "Field/BaseElement.h"
 
-//QGraphicsScene *scene;
-//QGraphicsView *view;
-
 #define elementSize 50
 #define fheigth 13
 #define fwidth 13
 #define fieldSize 650
-
-PlayerTank *Game::getPlayer()
-{
-    return player;
-}
 
 Game::Game(char *path)
 {
     //set scene
     scene = new QGraphicsScene();
     view = new QGraphicsView(scene);
-    scene->setBackgroundBrush(Qt::white);
+    scene->setBackgroundBrush(Qt::black);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->show();
@@ -84,7 +74,7 @@ Game::Game(char *path)
     player = (PlayerTank*)TankFactory::makeTank(PlayerID);
     qDebug() << "player created";
     player->setRect(0, 0, 50, 50);
-    player->setBrush(*new QBrush(Qt::green));
+    player->setBrush(Qt::green);
     scene->addItem(player);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
@@ -129,6 +119,7 @@ Game::~Game()
     }
 
     //message
+    scene->setBackgroundBrush(Qt::white);
     scene->addText("Game over!");
 
     // clean all enemies at the end;
@@ -152,6 +143,21 @@ int Game::check(int k, int m)
     } else {
         return 1;
     }
+}
+
+void Game::destroyEnemyTanks(BaseTank *tobeDestroyed)
+{
+        for(int i = 0; i < enemies.size();i++)
+            if (enemies[i] == tobeDestroyed)
+            {
+                delete enemies[i];
+                enemies.erase(enemies.begin() + i);
+                if (enemies.empty())
+                {
+                    delete this;
+                }
+            }
+        return;
 }
 
 

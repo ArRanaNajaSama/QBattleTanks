@@ -13,10 +13,10 @@ class Game
 public:
     Game(char* path);
     ~Game();
-    PlayerTank *getPlayer();
 
     //public methods
     int check(int, int);
+    void destroyEnemyTanks(BaseTank* tobeDestroyed);
 
     QGraphicsScene* scene;
 
