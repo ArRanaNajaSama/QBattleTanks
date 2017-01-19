@@ -7,7 +7,8 @@ PreMotion::PreMotion(BaseTank* _tank)
 
 PreMotion::~PreMotion()
 {
-    //tank = NULL;
+    if (tank)
+        delete tank;
 }
 
 

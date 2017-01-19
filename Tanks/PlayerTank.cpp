@@ -16,7 +16,6 @@ PlayerTank::PlayerTank(int a, int b) : BaseTank(a, b)
 
 PlayerTank::~PlayerTank()
 {
-
 }
 
 void PlayerTank::keyPressEvent(QKeyEvent *event)
