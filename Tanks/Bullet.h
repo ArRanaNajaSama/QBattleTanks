@@ -9,10 +9,12 @@ class Bullet: public QObject, public QGraphicsRectItem
 
 public:
     Bullet(int newBDirection);
+    ~Bullet();
 
 public slots:
     void move();
 
 private:
     int bDirection;
+    QTimer *timer;
 };

@@ -28,7 +28,6 @@ void Motion::move(int tDirection)
     case 0: // UP
         if (tank->y() > 0)
         {
-            //tank->setPos(tank->x(), tank->y()-10);
             dx = 0;
             dy = -1;
         } else
@@ -39,8 +38,6 @@ void Motion::move(int tDirection)
         {
             dx += 1;
             dy = 0;
-
-            //tank->setPos(tank->x()+10, tank->y());
         } else
             return;
         break;
@@ -49,8 +46,6 @@ void Motion::move(int tDirection)
         {
             dx = 0;
             dy += 1;
-
-            //tank->setPos(tank->x(), tank->y()+10);
         } else
             return;
         break;
@@ -59,8 +54,6 @@ void Motion::move(int tDirection)
         {
             dx -= 1;
             dy = 0;
-
-            //tank->setPos(tank->x()-10, tank->y());
         } else
             return;
         break;

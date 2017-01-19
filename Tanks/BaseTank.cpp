@@ -1,19 +1,14 @@
-#include <QGraphicsScene>
-#include <QGraphicsView>
-#include <QGraphicsItem>
 #include <typeinfo>
 
 #include "BaseTank.h"
-#include "EnemyTank.h"
+#include "Bullet.h"
 #include "Game.h"
-#include "Field/Wall.h"
 
 extern Game *game;
 
 BaseTank::BaseTank()
 {
     direction = 0;
-    speed = 0;
     premotion = NULL;
 }
 
@@ -21,17 +16,16 @@ BaseTank::BaseTank()
 BaseTank::BaseTank(int a, int b)
 {
     direction = 0;
-    speed = 0;
     premotion = NULL;
     setPos(a,b);
 }
 
 BaseTank::~BaseTank()
 {
-    delete premotion;
+    //delete premotion;
 }
 
-int BaseTank::getDirection() const
+int BaseTank::getDirection()
 {
     return this->direction;
 }
@@ -47,6 +41,7 @@ void BaseTank::move(int newDirection)
     this->setDirection(newDirection);
 
     // prevent collision;
+    //some code toprevent collisions between tanks
 
     premotion->move(getDirection());
 
@@ -87,7 +82,7 @@ void BaseTank::shot()
         break;
     }
     bullet->setPos(bulletX, bulletY);
-    scene()->addItem(bullet);
+    game->scene->addItem(bullet);
 }
 
 
@@ -114,9 +109,4 @@ int BaseTank::checkPosition()
         break;
     }
     return game->check(m,k);
-}
-
-void BaseTank::setMotion(PreMotion *newMotion)
-{
-    premotion = newMotion;
 }

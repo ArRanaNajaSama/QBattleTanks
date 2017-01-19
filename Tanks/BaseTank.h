@@ -15,7 +15,7 @@ public:
     explicit BaseTank(int a, int b);
     virtual ~BaseTank();
 
-    int getDirection() const;
+    int getDirection();
     void setDirection(int newDirection);
 
     //rotate tank
@@ -28,12 +28,8 @@ public:
     // Return type cell
     int checkPosition();
 
-public slots:
-    void setMotion(PreMotion *newMotion);
-
 protected:
     int direction;
-    qreal speed;
-    PreMotion *premotion;
+    PreMotion* premotion;
 
 };

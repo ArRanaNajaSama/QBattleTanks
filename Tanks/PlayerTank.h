@@ -1,9 +1,6 @@
 #pragma once
 
-#include <QGraphicsPixmapItem>
-
 #include "BaseTank.h"
-
 
 class PlayerTank : public BaseTank
 {

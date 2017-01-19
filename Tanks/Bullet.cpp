@@ -1,8 +1,6 @@
 #include "Bullet.h"
 
 #include <QTimer>
-#include <QGraphicsScene>
-#include <QGraphicsItem>
 #include <typeinfo>
 
 #include "EnemyTank.h"
@@ -25,9 +23,14 @@ Bullet::Bullet(int newBDirection)
     setBrush(QBrush(Qt::yellow));
 
     //connect
-    QTimer *timer = new QTimer;
+    timer = new QTimer;
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
     timer->start(25);
+}
+
+Bullet::~Bullet()
+{
+    delete timer;
 }
 
 void Bullet::move()
@@ -38,6 +41,7 @@ void Bullet::move()
         if (typeid(*(colliding_items[i])) == typeid(Wall))
         {
             // remove them both
+
             scene()->removeItem(this);
 
             // delete them both
@@ -61,24 +65,11 @@ void Bullet::move()
         }
         else if(typeid(*(colliding_items[i])) == typeid(PlayerTank))
         {
-            // remove them both
-            scene()->removeItem(colliding_items[i]);
-            scene()->removeItem(this);
-            // delete them both
-            delete colliding_items[i];
-            delete this;
-            return;
+            delete game;
         }
         else if (typeid(*(colliding_items[i])) == typeid(Headquarters))
         {
-//            // remove them both
-//            scene()->removeItem(colliding_items[i]);
-//            scene()->removeItem(this);
-//            //delete them both
-//            delete colliding_items[i];
-//            delete this;
-//            return;
-              delete game;
+            delete game;
         }
     }
 

@@ -1,7 +1,5 @@
 #pragma once
 
-#include <QTime>
-
 #include "BaseTank.h"
 #include "PreMotion.h"
 

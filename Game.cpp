@@ -1,5 +1,5 @@
-#include <QGraphicsScene>
-#include <QGraphicsView>
+//#include <QGraphicsScene>
+//#include <QGraphicsView>
 #include <QIODevice>
 #include <QFile>
 #include <QTextStream>
@@ -9,8 +9,8 @@
 #include "Tanks/TankFactory.h"
 #include "Field/BaseElement.h"
 
-QGraphicsScene *scene;
-QGraphicsView *view;
+//QGraphicsScene *scene;
+//QGraphicsView *view;
 
 #define elementSize 50
 #define fheigth 13
@@ -25,9 +25,9 @@ PlayerTank *Game::getPlayer()
 Game::Game(char *path)
 {
     //set scene
-    QGraphicsScene *scene = new QGraphicsScene();
-    scene->setBackgroundBrush(Qt::white);
+    scene = new QGraphicsScene();
     view = new QGraphicsView(scene);
+    scene->setBackgroundBrush(Qt::white);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->show();

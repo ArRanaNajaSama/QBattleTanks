@@ -14,7 +14,6 @@ INPUT(
 ./release\Tile.o
 ./release\Wall.o
 ./release\qrc_res.o
-./release\moc_Game.o
 ./release\moc_BaseTank.o
 ./release\moc_Bullet.o
 ./release\moc_EnemyTank.o

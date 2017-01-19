@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <QTimer>
 #include <QPainter>
 #include <QPixmap>
 
@@ -9,7 +8,7 @@
 EnemyTank::EnemyTank() : BaseTank()
 {
     //connect
-    QTimer *eTimer = new QTimer(this);
+    eTimer = new QTimer;
     connect(eTimer, SIGNAL(timeout()), this, SLOT(launch()));
     premotion = new Motion(this);
     eTimer->start(500);
@@ -22,6 +21,7 @@ EnemyTank::EnemyTank(int a, int b) : BaseTank(a,b)
 
 EnemyTank::~EnemyTank()
 {
+    delete eTimer;
 }
 
 void EnemyTank::launch()
@@ -35,8 +35,9 @@ void EnemyTank::launch()
         shot();
         return;
     }
+
     //random movement
-    else if (this->direction != random)
+    else if (this->getDirection() != random)
     {
         move(random);
     }
