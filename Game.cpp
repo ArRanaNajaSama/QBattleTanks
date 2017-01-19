@@ -120,7 +120,11 @@ Game::~Game()
 
     //message
     scene->setBackgroundBrush(Qt::white);
-    scene->addText("Game over!");
+    QGraphicsTextItem * io = new QGraphicsTextItem;
+    io->setPos(125,125);
+    io->setScale(5);
+    io->setPlainText("GAME OVER");
+    scene->addItem(io);
 
     // clean all enemies at the end;
     EnemyTank* enemy = NULL;
