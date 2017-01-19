@@ -6,7 +6,7 @@
 class Motion : public PreMotion
 {
 public:
-    explicit Motion(BaseTank *baseTank = NULL);
+    explicit Motion(BaseTank *baseTank = nullptr);
     ~Motion();
 
     void move(int tDirection);

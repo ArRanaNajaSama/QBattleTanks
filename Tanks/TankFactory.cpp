@@ -12,6 +12,6 @@ BaseTank *TankFactory::makeTank(TankID id)
     {
         return new EnemyTank();
     } else {
-        return NULL;
+        return nullptr;
     }
 }

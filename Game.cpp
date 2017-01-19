@@ -63,9 +63,6 @@ Game::Game(char *path)
                 elements.push_back(BaseElement::makeElement(headquartersID,j,i));
                 scene->addItem(elements.back());
                 break;
-            default:
-                elements.push_back(NULL);
-                break;
             }
         }
     }
@@ -95,7 +92,7 @@ Game::Game(char *path)
                 fMatrix[i+j*fwidth] = 0;
                 enemy = (EnemyTank*)TankFactory::makeTank(EnemyID);
                 enemy->setRect(0, 0, 50, 50);
-                enemy->setBrush(* new QBrush(Qt::red));
+                enemy->setBrush(Qt::red);
                 enemies.push_back(enemy);
                 scene->addItem(enemy);;
                 enemy->setPos(i*elementSize,j*elementSize);
@@ -127,7 +124,7 @@ Game::~Game()
     scene->addItem(io);
 
     // clean all enemies at the end;
-    EnemyTank* enemy = NULL;
+    EnemyTank* enemy = nullptr;
     while(enemies.size())
     {
         enemy = enemies.back();

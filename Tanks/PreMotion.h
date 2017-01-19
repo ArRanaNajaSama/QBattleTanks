@@ -7,7 +7,7 @@ class BaseTank;
 class PreMotion
 {
 public:
-    explicit PreMotion(BaseTank* tank = NULL);
+    explicit PreMotion(BaseTank* tank = nullptr);
     virtual ~PreMotion();
 
     void virtual move(int newDirection) = 0;
